@@ -1,0 +1,13 @@
+<launch>
+  <arg name="location" value="living_room" />
+
+  <node name="webcam_node" pkg="webcam" type="webcam_node">
+    <param name="id" type="int" value="0" />
+    <param name="frame_id" type="str" value="$(arg location)" />
+    <param name="width" type="int" value="1280" />
+    <param name="height" type="int" value="720" />
+    <param name="fps" type="int" value="30" />
+  </node>
+  <param name="/webcam/$(arg location)/image/compressed/format" type="str" value="jpeg" />
+  <param name="/webcam/$(arg location)/image/compressed/jpeg_quality" type="int" value="80" />
+</launch>
